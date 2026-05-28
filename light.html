@@ -62,7 +62,7 @@
     margin: 24px 0 36px 0;
     padding: 18px;
     background: var(--accent-soft);
-    border: 1px solid rgba(203,49,0,0.18);
+    border: 1px solid rgba(203,49,0,0.20);
     border-radius: 10px;
   }
   .lede strong { color: var(--text); }
@@ -182,6 +182,47 @@
   .seg-list { list-style: none; font-size: 12px; color: var(--text-3); line-height: 1.5; }
   .seg-list li { padding: 3px 0; padding-left: 10px; position: relative; }
   .seg-list li::before { content: "—"; position: absolute; left: 0; color: var(--text-5); }
+
+  .seg-econ {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-l);
+    font-size: 11px;
+  }
+  .seg-econ-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 3px 0;
+  }
+  .seg-econ-l { color: var(--text-4); }
+  .seg-econ-v { color: var(--text-2); font-family: var(--mono); font-weight: 600; }
+  .seg-econ-prod {
+    margin-top: 4px;
+    padding: 6px 8px;
+    background: var(--primary-soft);
+    border-radius: 4px;
+    color: var(--primary);
+    font-family: var(--mono);
+    font-weight: 600;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .seg-mix-summary {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: var(--card);
+    border: 1px solid var(--border-l);
+    border-radius: 10px;
+    font-size: 13px;
+    color: var(--text-3);
+    line-height: 1.55;
+  }
+  .seg-mix-summary strong { color: var(--white); }
+  .seg-mix-summary .calib {
+    margin-top: 8px; padding-top: 8px;
+    border-top: 1px dashed var(--border-l);
+    font-size: 11px; color: var(--text-4);
+  }
 
   /* Bars */
   .bars { display: flex; align-items: flex-end; gap: 10px; height: 130px; padding: 16px; }
@@ -362,7 +403,7 @@
 
   <!-- Сегменты ЦА -->
   <div class="section">
-    <div class="section-label">Сегменты ЦА — подтверждены глубинными интервью (Май 2026)</div>
+    <div class="section-label">Сегменты ЦА · экономика для Продамуса по сегментам</div>
     <div class="segments">
       <div class="seg">
         <div class="seg-title">Небольшие онлайн-школы и эксперты</div>
@@ -374,6 +415,11 @@
           <li>простой и удобный доступ для автора и учеников</li>
           <li>работу без VPN</li>
         </ul>
+        <div class="seg-econ">
+          <div class="seg-econ-row"><span class="seg-econ-l">Средний оборот / автор</span><span class="seg-econ-v">~80 К ₽/мес</span></div>
+          <div class="seg-econ-row"><span class="seg-econ-l">Доля в целевом миксе</span><span class="seg-econ-v">~70%</span></div>
+          <div class="seg-econ-prod">Ваши 4% = <span style="color:var(--white)">3,2 К ₽/мес</span> с автора</div>
+        </div>
       </div>
       <div class="seg">
         <div class="seg-title">Средние и крупные онлайн-школы</div>
@@ -386,6 +432,11 @@
           <li>защиту контента от копирования и записи экрана</li>
           <li>создание и оптимизацию воронок с помощью AI</li>
         </ul>
+        <div class="seg-econ">
+          <div class="seg-econ-row"><span class="seg-econ-l">Средний оборот / автор</span><span class="seg-econ-v">~1,2 М ₽/мес</span></div>
+          <div class="seg-econ-row"><span class="seg-econ-l">Доля в целевом миксе</span><span class="seg-econ-v">~10%</span></div>
+          <div class="seg-econ-prod">Ваши 4% = <span style="color:var(--white)">48 К ₽/мес</span> с автора</div>
+        </div>
       </div>
       <div class="seg">
         <div class="seg-title">Лидеры мнений, инди-проекты</div>
@@ -398,7 +449,17 @@
           <li>авторизацию через Telegram</li>
           <li>встроенную базу знаний</li>
         </ul>
+        <div class="seg-econ">
+          <div class="seg-econ-row"><span class="seg-econ-l">Средний оборот / автор</span><span class="seg-econ-v">~300 К ₽/мес</span></div>
+          <div class="seg-econ-row"><span class="seg-econ-l">Доля в целевом миксе</span><span class="seg-econ-v">~20%</span></div>
+          <div class="seg-econ-prod">Ваши 4% = <span style="color:var(--white)">12 К ₽/мес</span> с автора</div>
+        </div>
       </div>
+    </div>
+
+    <div class="seg-mix-summary">
+      Один автор «средний/крупный» приносит вам столько&nbsp;же, сколько <strong>15 малых</strong> или <strong>4 инди-проекта</strong>. На целевом миксе 70 / 20 / 10 средняя комиссия Продамуса по портфелю — <strong>~9,4 К ₽/мес с автора</strong>, что на базовом сценарии <strong>3 062 авторов = ~28,9 М ₽/мес</strong>.
+      <div class="calib">Калибровка: 70/20/10 × (80&nbsp;К / 300&nbsp;К / 1,2&nbsp;М) = <strong style="color:var(--text-2)">236 К ₽/автор/мес</strong> — совпадает с фактом Апр 2026 (237 К ₽). Допущения проверяются текущей структурой клиентов.</div>
     </div>
   </div>
 
