@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>createtoday.ru × Продамус — One-Pager</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #171717;
+    --card: #1e1e1e;
+    --border: #262626;
+    --border-l: #292929;
+    --text: #e5e5e5;
+    --text-2: #d4d4d4;
+    --text-3: #a3a3a3;
+    --text-4: #737373;
+    --text-5: #525252;
+    --white: #fafafa;
+    --primary: #264F9F;
+    --primary-soft: rgba(38,79,159,0.09);
+    --accent: #CB3100;
+    --accent-soft: rgba(203,49,0,0.06);
+    --green: #2f9e44;
+    --green-soft: rgba(47,158,68,0.10);
+    --mono: 'JetBrains Mono', monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    min-height: 100vh;
+    padding: 32px 24px;
+  }
+
+  .page { max-width: 880px; margin: 0 auto; }
+
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .header-logo {
+    width: 50px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 18px;
+    flex-shrink: 0;
+  }
+  .header-title { font-size: 19px; font-weight: 700; color: var(--white); letter-spacing: -0.3px; }
+  .header-sub { font-size: 11px; color: var(--text-4); margin-top: 2px; text-transform: uppercase; letter-spacing: 1.2px; }
+
+  .lede {
+    font-size: 14px;
+    color: var(--text-3);
+    line-height: 1.7;
+    margin: 24px 0 36px 0;
+    padding: 18px;
+    background: var(--accent-soft);
+    border: 1px solid rgba(203,49,0,0.18);
+    border-radius: 10px;
+  }
+  .lede strong { color: var(--text); }
+
+  /* Section */
+  .section { margin-bottom: 32px; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-4);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 12px;
+  }
+
+  /* Two-up */
+  .two-up { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .card {
+    background: var(--card);
+    border-radius: 10px;
+    border: 1px solid var(--border-l);
+    overflow: hidden;
+  }
+  .card-pad { padding: 16px; }
+  .card h4 {
+    font-size: 11px; font-weight: 600; color: var(--text-5);
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 10px; font-family: var(--mono);
+  }
+  .card-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .card-row:last-child { border-bottom: none; }
+  .card-row .l { color: var(--text-3); }
+  .card-row .v { color: var(--white); font-family: var(--mono); font-weight: 600; }
+
+  /* Big number block */
+  .big-block {
+    background: linear-gradient(180deg, rgba(38,79,159,0.18) 0%, rgba(38,79,159,0.03) 100%);
+    border: 1px solid rgba(38,79,159,0.35);
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 12px;
+  }
+  .big-label {
+    font-size: 11px; font-weight: 600;
+    color: var(--text-3);
+    text-transform: uppercase; letter-spacing: 1.4px;
+    margin-bottom: 8px;
+  }
+  .big-value {
+    font-size: 36px; font-weight: 700; color: var(--white);
+    font-family: var(--mono);
+    letter-spacing: -1px;
+  }
+  .big-sub { font-size: 13px; color: var(--text-3); margin-top: 6px; }
+
+  /* Data table */
+  .data-grid {
+    display: grid;
+    padding: 9px 16px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+  }
+  .data-grid:last-child { border-bottom: none; }
+  .data-head {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border-l);
+    font-size: 11px; font-weight: 600;
+    color: var(--text-5);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+  .data-total {
+    border-top: 1px solid #333;
+    background: #1a1a1a;
+    font-weight: 700;
+    padding: 12px 16px;
+  }
+  .data-grid .c { text-align: right; }
+  .data-grid .mono { font-family: var(--mono); }
+  .data-grid .month { color: var(--text-3); }
+  .data-grid .rev { color: var(--text-2); }
+  .data-grid .dim { color: var(--text-3); }
+  .peak { background: rgba(38,79,159,0.05); }
+  .peak .rev { color: var(--white); font-weight: 700; }
+  .peak .prod { color: var(--white); font-weight: 700; }
+
+  /* Three-up segments */
+  .segments { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .seg {
+    background: var(--card);
+    border-radius: 10px;
+    border: 1px solid var(--border-l);
+    padding: 14px;
+  }
+  .seg-title { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
+  .seg-tool { font-size: 12px; color: var(--text-3); line-height: 1.5; margin-bottom: 8px; }
+  .seg-tool b { color: var(--text-2); font-weight: 600; }
+  .seg-badge {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    padding: 2px 8px; border-radius: 4px; font-family: var(--mono);
+    margin: 4px 0 10px 0;
+  }
+  .seg-badge.ok { color: var(--green); background: var(--green-soft); }
+  .seg-badge.dev { color: var(--primary); background: var(--primary-soft); }
+  .seg-list-label {
+    font-size: 9px; color: var(--text-5);
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 6px; font-family: var(--mono);
+  }
+  .seg-list { list-style: none; font-size: 12px; color: var(--text-3); line-height: 1.5; }
+  .seg-list li { padding: 3px 0; padding-left: 10px; position: relative; }
+  .seg-list li::before { content: "—"; position: absolute; left: 0; color: var(--text-5); }
+
+  /* Bars */
+  .bars { display: flex; align-items: flex-end; gap: 10px; height: 130px; padding: 16px; }
+  .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .bar-val { font-size: 11px; font-family: var(--mono); color: var(--text-3); font-weight: 600; }
+  .bar { width: 100%; border-radius: 4px; background: #333; min-height: 4px; transition: height .3s; }
+  .bar.peak-bar { background: var(--primary); }
+  .bar-month { font-size: 10px; color: var(--text-5); white-space: nowrap; }
+
+  /* Principle */
+  .principle {
+    background: rgba(203,49,0,0.03);
+    border: 1px solid rgba(203,49,0,0.18);
+    border-radius: 10px;
+    padding: 18px;
+    margin-top: 16px;
+  }
+  .principle-title {
+    font-size: 11px; font-weight: 600; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 1px;
+    margin-bottom: 8px; font-family: var(--mono);
+  }
+  .principle p { font-size: 14px; color: var(--text-2); line-height: 1.65; }
+  .principle p + p { margin-top: 8px; }
+  .principle strong { color: var(--white); }
+
+  .footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-5);
+    text-align: center;
+  }
+
+  @media (max-width: 720px) {
+    .two-up { grid-template-columns: 1fr; }
+    .segments { grid-template-columns: 1fr; }
+    .big-value { font-size: 28px; }
+    body { padding: 20px 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-logo"><svg viewBox="0 0 2175 1210" fill="#fff" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%"><path d="M367.14 359.287C364.461 382.329 357.762 403.227 347.045 421.982C336.864 440.737 323.736 456.812 307.66 470.208C291.584 483.605 273.097 494.054 252.199 501.556C231.836 509.058 209.598 512.808 185.485 512.808C158.692 512.808 134.043 508.522 111.537 499.948C89.5666 490.839 70.5437 477.442 54.468 459.759C38.3924 441.54 25.7997 419.303 16.6902 393.046C8.1165 366.253 3.82965 335.174 3.82965 299.808C3.82965 264.442 8.1165 233.899 16.6902 208.178C25.7997 182.457 38.3924 161.559 54.468 145.483C70.5437 128.872 89.8345 116.547 112.34 108.51C135.382 100.472 160.835 96.453 188.7 96.453C214.421 96.453 237.731 99.936 258.629 106.902C280.063 113.868 298.55 124.049 314.09 137.446C330.166 150.842 342.758 166.917 351.868 185.672C360.978 204.427 366.336 225.325 367.944 248.366H262.648C259.969 228.004 251.663 212.197 237.731 200.944C224.334 189.155 207.723 183.261 187.896 183.261C176.643 183.261 166.194 185.136 156.549 188.887C146.903 192.638 138.329 199.068 130.827 208.178C123.861 216.751 118.235 228.54 113.948 243.544C109.661 258.012 107.518 275.963 107.518 297.397C107.518 340.801 115.288 372.952 130.827 393.85C146.367 414.748 164.318 425.197 184.681 425.197C205.044 425.197 222.459 419.571 236.927 408.318C251.395 397.065 259.701 380.721 261.844 359.287H367.14Z"/></svg></div>
+    <div>
+      <div class="header-title">createtoday.ru × Продамус</div>
+      <div class="header-sub">One-Pager · Май 2026 · обновление по прогрессу</div>
+    </div>
+  </div>
+
+  <!-- Lede -->
+  <div class="lede">
+    <strong>Что в этом документе:</strong> с момента прошлой презентации мы прошли разгонную фазу — оборот клиентов на платформе вырос в&nbsp;5,7&nbsp;раза за 4 месяца. На этом обороте Продамус по своей комиссии 4% уже зарабатывал&nbsp;бы <strong>~133 000 ₽ в месяц</strong> (по апрелю). Ниже — конкретика и три сценария дальнейшего роста.
+  </div>
+
+  <!-- Где мы были vs где сейчас -->
+  <div class="section">
+    <div class="section-label">Что было в прошлой презентации → что сейчас</div>
+    <div class="two-up">
+      <div class="card card-pad">
+        <h4>Прошлая презентация (Сент–Нояб 2025)</h4>
+        <div class="card-row"><span class="l">Платных авторов на платформе</span><span class="v">5</span></div>
+        <div class="card-row"><span class="l">Оборот клиентов, среднемесячный</span><span class="v">0,87 М ₽/мес</span></div>
+        <div class="card-row"><span class="l">Оборот клиентов, пиковый месяц</span><span class="v">—</span></div>
+        <div class="card-row"><span class="l">Триал-механика</span><span class="v">не было</span></div>
+      </div>
+      <div class="card card-pad">
+        <h4>Сейчас (Янв–Апр 2026)</h4>
+        <div class="card-row"><span class="l">Платных авторов на платформе</span><span class="v">14 · ×2,8</span></div>
+        <div class="card-row"><span class="l">Оборот клиентов, среднемесячный</span><span class="v">1,39 М ₽/мес · ×1,6</span></div>
+        <div class="card-row"><span class="l">Оборот клиентов, пиковый месяц</span><span class="v">3,32 М ₽ (Апр)</span></div>
+        <div class="card-row"><span class="l">Триал-механика</span><span class="v">48 триалов, конв. 33% (Апр)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Динамика GMV -->
+  <div class="section">
+    <div class="section-label">Оборот клиентов на платформе — динамика</div>
+    <div class="card">
+      <div class="bars" id="bars"></div>
+    </div>
+  </div>
+
+  <!-- Big total -->
+  <div class="section">
+    <div class="section-label">Ваша прибыль, которая могла бы уже быть</div>
+    <div class="big-block">
+      <div class="big-label">Янв–Апр 2026 · 4% от оборота клиентов</div>
+      <div class="big-value">223 003 ₽</div>
+      <div class="big-sub">это комиссия Продамуса с оборота, который прошёл через платформу за первые 4 месяца 2026</div>
+    </div>
+
+    <div class="card">
+      <div class="data-grid data-head" style="grid-template-columns: 1.2fr 1.2fr 1.2fr">
+        <span>Месяц</span>
+        <span class="c">Оборот клиентов</span>
+        <span class="c">Ваша 4% комиссия</span>
+      </div>
+      <div class="data-grid" style="grid-template-columns: 1.2fr 1.2fr 1.2fr">
+        <span class="month">Янв 2026</span>
+        <span class="c mono rev">585 251 ₽</span>
+        <span class="c mono rev">23 410 ₽</span>
+      </div>
+      <div class="data-grid" style="grid-template-columns: 1.2fr 1.2fr 1.2fr">
+        <span class="month">Фев 2026</span>
+        <span class="c mono rev">310 800 ₽</span>
+        <span class="c mono rev">12 432 ₽</span>
+      </div>
+      <div class="data-grid" style="grid-template-columns: 1.2fr 1.2fr 1.2fr">
+        <span class="month">Мар 2026 <span style="font-size:10px;color:var(--green);font-family:var(--mono)">·новые тарифы +триал 7д</span></span>
+        <span class="c mono rev">1 358 805 ₽</span>
+        <span class="c mono rev">54 352 ₽</span>
+      </div>
+      <div class="data-grid peak" style="grid-template-columns: 1.2fr 1.2fr 1.2fr">
+        <span class="month">Апр 2026</span>
+        <span class="c mono rev">3 320 213 ₽</span>
+        <span class="c mono prod">132 808 ₽</span>
+      </div>
+      <div class="data-grid data-total" style="grid-template-columns: 1.2fr 1.2fr 1.2fr">
+        <span style="color:var(--text-4)">Итого 4 мес</span>
+        <span class="c mono" style="color:var(--white)">5 575 069 ₽</span>
+        <span class="c mono" style="color:var(--white)">223 003 ₽</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Forecast 3 scenarios -->
+  <div class="section">
+    <div class="section-label">Три сценария на год вперёд · ваша 4% комиссия</div>
+    <p style="font-size:12px;color:var(--text-4);line-height:1.6;margin-bottom:10px">
+      Допущения единые для всех трёх сценариев: средний оборот на платного автора <strong style="color:var(--text-2)">237К ₽/мес</strong> (факт Апр 2026), конверсия триал→оплата <strong style="color:var(--text-2)">25%</strong> (blended Мар 8% / Апр 33%), отток <strong style="color:var(--text-2)">5%/мес</strong>, старт — 14 платных авторов.
+    </p>
+    <div class="card">
+      <div class="data-grid data-head" style="grid-template-columns: 1.4fr 0.8fr 0.8fr 1.1fr 1.1fr">
+        <span>Сценарий</span>
+        <span class="c">Авторов M12</span>
+        <span class="c">GMV M12, ₽/мес</span>
+        <span class="c">Ваша комиссия, ₽/мес M12</span>
+        <span class="c">Ваша комиссия, ₽ за год</span>
+      </div>
+      <div class="data-grid" style="grid-template-columns: 1.4fr 0.8fr 0.8fr 1.1fr 1.1fr">
+        <span class="month"><strong style="color:var(--text-2)">Пессимистичный</strong><br><span style="font-size:11px;color:var(--text-5)">0 новых триалов — статус-кво без усилий</span></span>
+        <span class="c mono dim">8</span>
+        <span class="c mono dim">2,0 М</span>
+        <span class="c mono dim">75 К</span>
+        <span class="c mono dim">1,16 М</span>
+      </div>
+      <div class="data-grid peak" style="grid-template-columns: 1.4fr 0.8fr 0.8fr 1.1fr 1.1fr">
+        <span class="month"><strong style="color:var(--white)">Реалистичный</strong><br><span style="font-size:11px;color:var(--text-3)">+50 триалов/мес — текущий темп масштабирования</span></span>
+        <span class="c mono rev">122</span>
+        <span class="c mono rev">29,0 М</span>
+        <span class="c mono prod">1,16 М</span>
+        <span class="c mono prod">8,9 М</span>
+      </div>
+      <div class="data-grid" style="grid-template-columns: 1.4fr 0.8fr 0.8fr 1.1fr 1.1fr">
+        <span class="month"><strong style="color:var(--text-2)">Оптимистичный</strong><br><span style="font-size:11px;color:var(--text-5)">+100 триалов/мес — вливание в маркетинг (×2)</span></span>
+        <span class="c mono rev">237</span>
+        <span class="c mono rev">56,2 М</span>
+        <span class="c mono prod">2,25 М</span>
+        <span class="c mono prod">16,7 М</span>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-title">Контекст для Продамуса</div>
+      <p>В <strong>реалистичном</strong> сценарии за год вы заработаете <strong>8,9 М ₽</strong>, к 12-му месяцу выходите на run-rate <strong>1,16 М ₽/мес</strong>. Ваш чек 13 М ₽ возвращается накопленной комиссией к <strong>16-му месяцу</strong>.</p>
+      <p>В <strong>оптимистичном</strong> — <strong>16,7 М ₽ за год</strong>, run-rate <strong>2,25 М ₽/мес</strong> к концу года. Ваш чек 13 М ₽ возвращается уже к <strong>11-му месяцу</strong> и дальше идёт чистая прибыль.</p>
+      <p>На long-term выходе (базовый сценарий питча: 3 062 автора × 237К ₽ факта Апреля) — ваша комиссия <strong>~29 М ₽/мес</strong>, то есть наш ask 13 М ₽ ≈ две недели вашей комиссии в стационаре.</p>
+    </div>
+  </div>
+
+  <!-- Сегменты ЦА -->
+  <div class="section">
+    <div class="section-label">Сегменты ЦА — подтверждены глубинными интервью (Май 2026)</div>
+    <div class="segments">
+      <div class="seg">
+        <div class="seg-title">Небольшие онлайн-школы и эксперты</div>
+        <div class="seg-tool">Используют <b>Telegram + Zoom</b>. GetCourse им рано и сложно.</div>
+        <span class="seg-badge ok">подтверждено</span>
+        <div class="seg-list-label">Мы убираем микроменеджмент и даём</div>
+        <ul class="seg-list">
+          <li>единое место для продуктов и базы клиентов</li>
+          <li>простой и удобный доступ для автора и учеников</li>
+          <li>работу без VPN</li>
+        </ul>
+      </div>
+      <div class="seg">
+        <div class="seg-title">Средние и крупные онлайн-школы</div>
+        <div class="seg-tool">Используют <b>GetCourse</b>. Им важны аналитика и воронки.</div>
+        <span class="seg-badge dev">в разработке</span>
+        <div class="seg-list-label">Целенаправленно строим</div>
+        <ul class="seg-list">
+          <li>рассылки по базе учеников с платформы</li>
+          <li>аналитику прохождения уроков</li>
+          <li>защиту контента от копирования и записи экрана</li>
+          <li>создание и оптимизацию воронок с помощью AI</li>
+        </ul>
+      </div>
+      <div class="seg">
+        <div class="seg-title">Лидеры мнений, инди-проекты</div>
+        <div class="seg-tool">Используют <b>Notion</b>, нуждаются в базах знаний. Не устраивает перегруженный GetCourse.</div>
+        <span class="seg-badge ok">подтверждено</span>
+        <div class="seg-list-label">Мы предлагаем</div>
+        <ul class="seg-list">
+          <li>редактор уроков, аналогичный Notion</li>
+          <li>простой и понятный интерфейс</li>
+          <li>авторизацию через Telegram</li>
+          <li>встроенную базу знаний</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Тех-блок -->
+  <div class="section">
+    <div class="section-label">Технологии и платёжные интеграции</div>
+    <div class="two-up">
+      <div class="card card-pad">
+        <h4>Стек</h4>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px">
+          <span class="seg-badge dev" style="margin:0">Go</span>
+          <span class="seg-badge dev" style="margin:0">Nuxt 3</span>
+          <span class="seg-badge dev" style="margin:0">PostgreSQL</span>
+          <span class="seg-badge dev" style="margin:0">Redis</span>
+          <span class="seg-badge dev" style="margin:0">Grafana</span>
+          <span class="seg-badge dev" style="margin:0">Sentry</span>
+          <span class="seg-badge dev" style="margin:0">Yandex Cloud · 152-ФЗ</span>
+        </div>
+      </div>
+      <div class="card card-pad">
+        <h4>Платёжные системы</h4>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px">
+          <span class="seg-badge ok" style="margin:0">Продамус</span>
+          <span class="seg-badge dev" style="margin:0">T-Bank Эквайринг</span>
+          <span class="seg-badge dev" style="margin:0">T-Bank Рассрочки</span>
+          <span class="seg-badge dev" style="margin:0">CloudPayments</span>
+          <span class="seg-badge dev" style="margin:0">YooKassa</span>
+        </div>
+        <div style="font-size:11px;color:var(--text-4);line-height:1.5;margin-top:10px">Продамус уже интегрирован и работает. PCI DSS — карточные данные на стороне PSP, не у нас.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">createtoday.ru · Май 2026 · подготовлено для Продамуса</div>
+
+</div>
+
+<script>
+  const revenue = [
+    { month: 'Янв', value: 585251 },
+    { month: 'Фев', value: 310800 },
+    { month: 'Мар', value: 1358805 },
+    { month: 'Апр', value: 3320213 },
+  ];
+  const max = Math.max(...revenue.map(r => r.value));
+  const barsEl = document.getElementById('bars');
+  revenue.forEach(d => {
+    const h = (d.value / max) * 100;
+    const col = document.createElement('div');
+    col.className = 'bar-col';
+    col.innerHTML = `
+      <span class="bar-val">${Math.round(d.value / 1000)}K ₽</span>
+      <div class="bar ${d.value === max ? 'peak-bar' : ''}" style="height:${h}%"></div>
+      <span class="bar-month">${d.month} 2026</span>
+    `;
+    barsEl.appendChild(col);
+  });
+</script>
+</body>
+</html>
