@@ -463,32 +463,59 @@
     </div>
   </div>
 
-  <!-- Тех-блок -->
+  <!-- Тех-блок: Продамус × Create Today -->
   <div class="section">
-    <div class="section-label">Технологии и платёжные интеграции</div>
-    <div class="two-up">
-      <div class="card card-pad">
-        <h4>Стек</h4>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px">
-          <span class="seg-badge dev" style="margin:0">Go</span>
-          <span class="seg-badge dev" style="margin:0">Nuxt 3</span>
-          <span class="seg-badge dev" style="margin:0">PostgreSQL</span>
-          <span class="seg-badge dev" style="margin:0">Redis</span>
-          <span class="seg-badge dev" style="margin:0">Grafana</span>
-          <span class="seg-badge dev" style="margin:0">Sentry</span>
-          <span class="seg-badge dev" style="margin:0">Yandex Cloud · 152-ФЗ</span>
-        </div>
-      </div>
-      <div class="card card-pad">
-        <h4>Платёжные системы</h4>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px">
+    <div class="section-label">Продамус × Create Today · техническая готовность</div>
+    <div class="segments">
+      <!-- 1. Интеграция -->
+      <div class="seg">
+        <div class="seg-title">Интеграция уже работает</div>
+        <span class="seg-badge ok">в проде</span>
+        <ul class="seg-list" style="margin-top:6px">
+          <li>Продамус подключён как один из 5 PSP платформы</li>
+          <li>Через него проходят и разовые продажи, и подписочные платежи авторов</li>
+          <li>За Янв–Апр через PSP-стек прошло <strong style="color:var(--text-2)">5,58 М ₽</strong> оборота клиентов</li>
+        </ul>
+        <div class="seg-list-label" style="margin-top:12px">Платёжные системы в проде</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">
           <span class="seg-badge ok" style="margin:0">Продамус</span>
           <span class="seg-badge dev" style="margin:0">T-Bank Эквайринг</span>
           <span class="seg-badge dev" style="margin:0">T-Bank Рассрочки</span>
           <span class="seg-badge dev" style="margin:0">CloudPayments</span>
           <span class="seg-badge dev" style="margin:0">YooKassa</span>
         </div>
-        <div style="font-size:11px;color:var(--text-4);line-height:1.5;margin-top:10px">Продамус уже интегрирован и работает. PCI DSS — карточные данные на стороне PSP, не у нас.</div>
+      </div>
+
+      <!-- 2. Scale -->
+      <div class="seg">
+        <div class="seg-title">Способны держать масштаб</div>
+        <span class="seg-badge dev">архитектура × команда</span>
+        <ul class="seg-list" style="margin-top:6px">
+          <li><strong style="color:var(--text-2)">Костя Вороной</strong> (CTO) — ex-Avito senior backend (60M MAU), ex-Xsolla</li>
+          <li>Go-стек на Yandex Cloud — не упадёт при ×1000 нагрузки от текущей</li>
+          <li>Observability: Grafana, VictoriaMetrics, VictoriaLogs, Sentry — видим каждую транзакцию</li>
+        </ul>
+        <div class="seg-list-label" style="margin-top:12px">Стек</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">
+          <span class="seg-badge dev" style="margin:0">Go</span>
+          <span class="seg-badge dev" style="margin:0">Nuxt 3</span>
+          <span class="seg-badge dev" style="margin:0">PostgreSQL</span>
+          <span class="seg-badge dev" style="margin:0">Redis</span>
+          <span class="seg-badge dev" style="margin:0">VictoriaMetrics</span>
+          <span class="seg-badge dev" style="margin:0">VictoriaLogs</span>
+        </div>
+      </div>
+
+      <!-- 3. Compliance + trust -->
+      <div class="seg">
+        <div class="seg-title">Compliance и доверие</div>
+        <span class="seg-badge ok">аудитоспособно</span>
+        <ul class="seg-list" style="margin-top:6px">
+          <li><strong style="color:var(--text-2)">152-ФЗ</strong> — ПДн в РФ (Yandex Cloud, российский ЦОД)</li>
+          <li><strong style="color:var(--text-2)">PCI DSS</strong> — карточные данные не у нас, токенизация на стороне PSP</li>
+          <li><strong style="color:var(--text-2)">TLS 1.3</strong> — автоматический HTTPS для всех доменов</li>
+          <li>Эдвайзер <strong style="color:var(--text-2)">Максим Колпаков</strong> — ex-директор по маркетингу Prodamus (рост 630 М → 1,4 млрд ₽ за 2 года). Знает вас изнутри.</li>
+        </ul>
       </div>
     </div>
   </div>
