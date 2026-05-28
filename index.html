@@ -290,7 +290,7 @@
       <div class="data-grid data-head" style="grid-template-columns: 1.5fr 1fr 1fr 0.6fr">
         <span>Метрика</span>
         <span class="c">Было · Сент–Нояб 2025</span>
-        <span class="c">Сейчас · Янв–Апр 2026</span>
+        <span class="c">Сейчас · Янв–Май 2026</span>
         <span class="c">Δ</span>
       </div>
       <div class="data-grid" style="grid-template-columns: 1.5fr 1fr 1fr 0.6fr">
@@ -317,6 +317,18 @@
         <span class="c mono rev">48 триалов, конв 33%</span>
         <span class="c mono prod">new</span>
       </div>
+      <div class="data-grid" style="grid-template-columns: 1.5fr 1fr 1fr 0.6fr">
+        <span class="month">MAU <span style="font-size:10px;color:var(--text-5);font-family:var(--mono)">·Май</span></span>
+        <span class="c mono dim">—</span>
+        <span class="c mono rev">885</span>
+        <span class="c mono prod">new</span>
+      </div>
+      <div class="data-grid" style="grid-template-columns: 1.5fr 1fr 1fr 0.6fr">
+        <span class="month">DAU / стикинесс <span style="font-size:10px;color:var(--text-5);font-family:var(--mono)">·Май</span></span>
+        <span class="c mono dim">—</span>
+        <span class="c mono rev">130 · 15%</span>
+        <span class="c mono prod">new</span>
+      </div>
     </div>
   </div>
 
@@ -332,9 +344,9 @@
   <div class="section">
     <div class="section-label">Ваша прибыль, которая могла бы уже быть</div>
     <div class="big-block">
-      <div class="big-label">Янв–Апр 2026 · 4% от оборота клиентов</div>
-      <div class="big-value">223 003 ₽</div>
-      <div class="big-sub">это комиссия Продамуса с оборота, который прошёл через платформу за первые 4 месяца 2026</div>
+      <div class="big-label">Янв–Май 2026 · 4% от оборота клиентов</div>
+      <div class="big-value">318 722 ₽</div>
+      <div class="big-sub">это комиссия Продамуса с оборота, который прошёл через платформу за первые 5 месяцев 2026 (май — на 28.05, ещё открыт)</div>
     </div>
 
     <div class="card">
@@ -363,10 +375,15 @@
         <span class="c mono rev">3 320 213 ₽</span>
         <span class="c mono prod">132 808 ₽</span>
       </div>
+      <div class="data-grid" style="grid-template-columns: 1.2fr 1.2fr 1.2fr">
+        <span class="month">Май 2026 <span style="font-size:10px;color:var(--text-4);font-family:var(--mono)">·на 28.05, неполный</span></span>
+        <span class="c mono rev">2 392 979 ₽</span>
+        <span class="c mono rev">95 719 ₽</span>
+      </div>
       <div class="data-grid data-total" style="grid-template-columns: 1.2fr 1.2fr 1.2fr">
-        <span style="color:var(--text-4)">Итого 4 мес</span>
-        <span class="c mono" style="color:var(--white)">5 575 069 ₽</span>
-        <span class="c mono" style="color:var(--white)">223 003 ₽</span>
+        <span style="color:var(--text-4)">Итого 5 мес</span>
+        <span class="c mono" style="color:var(--white)">7 968 048 ₽</span>
+        <span class="c mono" style="color:var(--white)">318 722 ₽</span>
       </div>
     </div>
 
@@ -546,6 +563,7 @@
     { month: 'Фев', value: 310800 },
     { month: 'Мар', value: 1358805 },
     { month: 'Апр', value: 3320213 },
+    { month: 'Май·MTD', value: 2392979 },
   ];
   const max = Math.max(...revenue.map(r => r.value));
   const barsEl = document.getElementById('bars');
